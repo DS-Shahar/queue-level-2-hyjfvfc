@@ -1,0 +1,84 @@
+public static Queue<Integer> L2ex1(Queue<Character> q) {
+    Queue<Integer> countQ = new Queue<Integer>();
+    Queue <Character> q2=copyQ(q);
+    
+
+    int Count = 1;
+    char last = q2.remove();
+
+    while (!q2.isEmpty()) {
+        char current = q2.remove();
+        
+        if (current == last) {
+            Count++;}
+            else {
+            countQ.insert(Count); 
+            Count = 1;         
+            last = current;
+        }
+    }
+    countQ.insert(Count); 
+    
+    return countQ;
+}
+public static boolean isInString(Queue<String> q,String x){
+    Queue <String> q2=copyQ(q);
+	    while (!q2.isEmpty()) {
+	        if( q2.remove()==x){
+	        return true;}
+	    }
+	   return false;
+}
+public static boolean L2ex2(Queue <String> q){
+   Queue <String> q2=copyQ(q);
+    while(!q2.isEmpty()){
+          int a=q2.remove();
+          if(!isInString(q2,a))
+              return false;
+          }
+    return true;
+}
+
+public static boolean isInInt(Queue<Integer> q,int x){
+    Queue <Integer> q2=copyQ(q);
+	    while (!q2.isEmpty()) {
+	        if( q2.remove()==x){
+	        return true;}
+	    }
+	   return false;
+}
+public static Queue<Integer> L2ex3(Queue<Integer> q) {
+    Queue<Integer> newQ = new Queue<Integer>();
+    Queue <Integer> q2=copyQ(q);
+
+    while (!q2.isEmpty()) {
+        int current = q2.remove();
+        
+        if (!isIn(newQ, current)) {
+            newQ.insert(current);
+        }
+    }
+return newQ}
+
+public static Queue<Integer> L2ex4(Queue<Integer> q) {
+  Queue<Integer> q1 = new Queue<Integer>();   
+ Queue<Integer> q2 = new Queue<Integer>(); 
+ while(!q.isEmpty()){
+     int min=q.remove();
+     while(!q.isEmpty()){
+         if(q.head()<min){
+             q1.insert(min);
+             min=q.remove();}
+             
+             else{
+                  q1.insert(q.remove());
+             }}
+    q2.insert(min);
+    
+    while(!q1.isEmpty()){
+        q.insert(q1.remove());
+    }
+             
+         }
+        return q2
+     }
