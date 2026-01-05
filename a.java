@@ -47,6 +47,28 @@ num=num/10;
  }
 return digit;}
 
+public static Queue <Integer>  sort(Queue <Integer> q) {
+ Queue <Integer> []a=new Queue [10];
+ for(int i=0;i<10;i++){
+     a[i]= new Queue<>();
+ }
+ int x=log(max(q));
+ 
+  for(int i=0;i<x;i++){
+      
+    while(!q.isEmpty()){
+     
+        int num=q.remove();
+        a[loction(num,i)].insert(num);}
+        
+      for(int j=0;j<10;j++){
+          while(!a[j].isEmpty()){
+              q.insert(a[j].remove());}
+        
+      }
+  }
+  return q;}
+
 static Scanner reader = new Scanner(System.in);
 public static void main(String []args){
     Queue <Integer> q= new Queue<Integer>();
