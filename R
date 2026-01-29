@@ -1,0 +1,68 @@
+
+
+public static void ex11a(BinNode<Integer> T)
+{
+        if (T == null)
+            return;
+           
+        boolean even = T.getValue() % 2 == 0;
+        boolean leftOk = !T.hasLeft() || T.getLeft().getValue() % 2 == 0;
+        boolean rightOk = !T.hasRight() || T.getRight().getValue() % 2 == 0;
+       
+        if (even && leftOk && rightOk)
+            System.out.println(T.getValue());
+           
+        ex11a(T.getLeft());
+        ex11a(T.getRight());
+    }
+   
+    public static int ex11b(BinNode<Integer> T)
+{
+        if (T == null)
+            return 0;
+           
+        boolean even = T.getValue() % 2 == 0;
+        boolean leftOk = !T.hasLeft() || T.getLeft().getValue() % 2 == 0;
+        boolean rightOk = !T.hasRight() || T.getRight().getValue() % 2 == 0;
+       
+        if (even && leftOk && rightOk)
+            return ex11b(T.getLeft()) + ex11b(T.getRight()) + 1;
+        else    
+            return ex11b(T.getLeft()) + ex11b(T.getRight());
+    }
+   
+    public static boolean ex11c(BinNode<Integer> T)
+{
+        if (T == null)
+            return false;
+           
+        boolean even = T.getValue() % 2 == 0;
+        boolean leftOk = !T.hasLeft() || T.getLeft().getValue() % 2 == 0;
+        boolean rightOk = !T.hasRight() || T.getRight().getValue() % 2 == 0;
+       
+        if (even && leftOk && rightOk)
+            return true;
+           
+        if (ex11c(T.getLeft()) || ex11c(T.getRight()))
+            return true;
+        else    
+            return false;
+    }
+   
+    public static boolean ex11d(BinNode<Integer> T)
+{
+        if (T == null)
+            return true;
+           
+        boolean even = T.getValue() % 2 == 0;
+        boolean leftOk = !T.hasLeft() || T.getLeft().getValue() % 2 == 0;
+        boolean rightOk = !T.hasRight() || T.getRight().getValue() % 2 == 0;
+       
+        if (!(even && leftOk && rightOk))
+            return false;
+           
+        if (!(ex11d(T.getLeft()) || ex11d(T.getRight())))
+            return false;
+        else    
+            return true;
+}
