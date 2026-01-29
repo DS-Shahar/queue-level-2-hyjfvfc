@@ -1,4 +1,4 @@
-    public static int ex12(BinNode<Integer> T)
+   public static int ex12(BinNode<Integer> T)
 {
         if (T == null)
             return 0;
@@ -67,7 +67,33 @@
         else{    
             return isEven(T.getLeft())&&isEven(T.getRight());}
     }
+    
+    
+    
+         public static boolean hasRightSon(BinNode<Integer> T)
+{
+        if (T == null)
+            return true;
 
-}
- 
- 
+
+        if (T.hasRight()&&!T.hasLeft()){
+            return false;}
+        else{    
+            return hasRightSon(T.getLeft())&&hasRightSon(T.getRight());}
+    }
+  
+    public static boolean ex22(BinNode<Integer> T) {
+          if (T == null)
+            return true;
+
+
+        if (T.hasRight()&&!T.hasLeft()||T.hasLeft()&&!T.hasRight()){
+            return false;}
+        else{    
+            return ex22(T.getLeft())&&ex22(T.getRight());}
+    }
+      
+    
+
+      
+   
